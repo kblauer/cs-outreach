@@ -1,2 +1,4 @@
-# cs-outreach
-This project is an android application that provides beginner tutorials and quizzes for those interested in CS.
+# cs-tutorial application
+This project is an android application that provides beginner tutorials and quizzes for those interested in programming courses.
+
+
