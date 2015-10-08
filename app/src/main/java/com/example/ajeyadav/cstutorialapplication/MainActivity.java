@@ -1,6 +1,8 @@
 package com.example.ajeyadav.cstutorialapplication;
 
 import android.content.Intent;
+import android.media.session.MediaController;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +14,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
+import android.widget.VideoView;
+import android.app.Activity;
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
@@ -24,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,10 +39,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         button1 = (Button)findViewById(R.id.buttonlogin);
         button1.setOnClickListener(this);
-
         button2 = (Button)findViewById(R.id.buttonsignup);
         button2.setOnClickListener(this);
 
+        VideoView videoView =(VideoView) findViewById(R.id.videoView);
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" +
+                R.raw.welcome));
+        videoView.setMediaController(new android.widget.MediaController(this));
+        videoView.requestFocus();
+        videoView.start();
 
     }
 
@@ -67,17 +75,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-
         if(v.getId() == R.id.buttonlogin) {
-
             Intent i = new Intent(this, login.class);
             startActivity(i);
         }
-
         else if (v.getId() == R.id.buttonsignup) {
-
             Intent i = new Intent(this, signup.class);
             startActivity(i);
         }
     }
+
+
 }
