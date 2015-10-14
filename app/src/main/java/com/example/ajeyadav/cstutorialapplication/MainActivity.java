@@ -1,7 +1,14 @@
+// Ajeet Kumar Yadav
+// Project Team - 5
+// CS Tutorial Application
+// CS 5363 - Software Project Management
+// Java file for the login function
+// This java file will control the backend for homepage for the application.
+
+
 package com.example.ajeyadav.cstutorialapplication;
 
 import android.content.Intent;
-import android.media.session.MediaController;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,15 +19,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.Toast;
 import android.view.View.OnClickListener;
 import android.widget.VideoView;
-import android.app.Activity;
 
-
+// Main class for the homepage
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
-    Button button1, button2;
+    // Declaring the buttons on the homepage
+    Button button1, button2, button3, button4, button5, button6, button7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Working on it.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -41,13 +47,23 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         button1.setOnClickListener(this);
         button2 = (Button)findViewById(R.id.buttonsignup);
         button2.setOnClickListener(this);
+        button3 = (Button)findViewById(R.id.buttonmycourses);
+        button3.setOnClickListener(this);
+        button4 = (Button)findViewById(R.id.buttoncoursecatalog);
+        button4.setOnClickListener(this);
+        button5 = (Button)findViewById(R.id.buttonvideos);
+        button5.setOnClickListener(this);
+        button6 = (Button)findViewById(R.id.buttonquiz);
+        button6.setOnClickListener(this);
+        button7 = (Button)findViewById(R.id.buttongames);
+        button7.setOnClickListener(this);
 
-        VideoView videoView =(VideoView) findViewById(R.id.videoView);
+
+        final VideoView videoView =(VideoView) findViewById(R.id.videoView);
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" +
                 R.raw.welcome));
         videoView.setMediaController(new android.widget.MediaController(this));
         videoView.requestFocus();
-        videoView.start();
 
     }
 
@@ -76,11 +92,31 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.buttonlogin) {
-            Intent i = new Intent(this, login.class);
+            Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
         }
         else if (v.getId() == R.id.buttonsignup) {
-            Intent i = new Intent(this, signup.class);
+            Intent i = new Intent(this, SignupActivity.class);
+            startActivity(i);
+        }
+        else if (v.getId() == R.id.buttonmycourses) {
+            Intent i = new Intent(this, MyCoursesActivity.class);
+            startActivity(i);
+        }
+        else if (v.getId() == R.id.buttoncoursecatalog) {
+            Intent i = new Intent(this, CourseCatalogActivity.class);
+            startActivity(i);
+        }
+        else if (v.getId() == R.id.buttonvideos) {
+            Intent i = new Intent(this, VideosActivity.class);
+            startActivity(i);
+        }
+        else if (v.getId() == R.id.buttonquiz) {
+            Intent i = new Intent(this, QuizActivity.class);
+            startActivity(i);
+        }
+        else if (v.getId() == R.id.buttongames) {
+            Intent i = new Intent(this, GamesActivity.class);
             startActivity(i);
         }
     }
