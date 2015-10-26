@@ -21,4 +21,5 @@
     <string name="title_activity_videos">VideosActivity</string>
     <string name="title_activity_quiz">QuizActivity</string>
     <string name="title_activity_games">GamesActivity</string>
+    <string name="title_activity_quiz_menu">My Quizzes</string>
 </resources>

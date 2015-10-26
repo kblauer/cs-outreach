@@ -50,7 +50,7 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".QuizActivity"
+            android:name="edu.ttu.cs.csta.quiz.QuizIntroActivity"
             android:label="Quiz"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
@@ -58,6 +58,20 @@
             android:name=".GamesActivity"
             android:label="Games"
             android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="edu.ttu.cs.csta.quiz.menu.QuizCategoryMenuActivity"
+            android:label="@string/title_activity_quiz_menu"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="edu.ttu.cs.csta.quiz.menu.QuizMenuActivity"
+            android:label="@string/title_activity_quiz_menu"
+            android:parentActivityName="edu.ttu.cs.csta.quiz.menu.QuizCategoryMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.ttu.cs.csta.quiz.menu.QuizCategoryMenuActivity" />
         </activity>
     </application>
 

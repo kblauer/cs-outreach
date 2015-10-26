@@ -22,6 +22,8 @@ import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.VideoView;
 
+import edu.ttu.cs.csta.quiz.menu.QuizCategoryMenuActivity;
+
 // Main class for the homepage
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             startActivity(i);
         }
         else if (v.getId() == R.id.buttonquiz) {
-            Intent i = new Intent(this, QuizActivity.class);
+            Intent i = new Intent(this, QuizCategoryMenuActivity.class);
             startActivity(i);
         }
         else if (v.getId() == R.id.buttongames) {
