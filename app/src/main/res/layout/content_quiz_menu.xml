@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_quiz_menu" tools:context="edu.ttu.cs.csta.quiz.menu.QuizMenuActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/quiz_menu_category_name"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/quiz_menu_category_name"
+        android:id="@+id/quiz_menu_category_description" />
+
+    <View android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#CCCCCC"
+        android:id="@+id/quiz_menu_horizontal_rule"
+        android:layout_marginBottom="@dimen/horizontal_rule_margin"
+        android:layout_below="@+id/quiz_menu_category_description"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/quiz_menu_horizontal_rule"
+        android:id="@+id/quiz_menu_list_scroll_view" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/quiz_menu_list">
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
