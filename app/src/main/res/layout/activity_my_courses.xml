@@ -1,3 +1,13 @@
+/*
+    #Design Update:
+    User - Justin McClain
+    Date - 11/04/2015
+    Description - My courses is where a user can select what languages they would like to interact with
+    Details of updates:
+    - Design is simplified
+    - The layout is fixed and evenly spread
+    */
+
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,12 +32,6 @@
 
     </android.support.design.widget.AppBarLayout>
     <include layout="@layout/content_my_courses" />
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+
 
 </android.support.design.widget.CoordinatorLayout>
