@@ -22,4 +22,7 @@
     <string name="title_activity_quiz">QuizActivity</string>
     <string name="title_activity_games">GamesActivity</string>
     <string name="title_activity_quiz_menu">My Quizzes</string>
+    <string name="title_activity_quiz_question">QuizQuestionActivity</string>
+    <string name="title_activity_quiz_score_page">QuizScorePage</string>
+    <string name="title_activity_quiz_score">QuizScoreActivity</string>
 </resources>

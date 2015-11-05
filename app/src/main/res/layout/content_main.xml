@@ -1,6 +1,6 @@
-
-/*
-#Design Update:
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Design Update:
     User - Justin McClain
     Date - 11/04/2015
     Description - Main Activity is the main screen where a user can make selections based on what they would like to do
@@ -8,9 +8,7 @@
         - Design is simplified
         - The layout is fixed and evenly spread
         - Selection does not overlap
-    */
-
-<?xml version="1.0" encoding="utf-8"?>
+-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"

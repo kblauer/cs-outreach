@@ -1,4 +1,5 @@
-/*
+<?xml version="1.0" encoding="utf-8"?>
+<!--
     #Design Update:
     User - Justin McClain
     Date - 11/04/2015
@@ -6,9 +7,7 @@
     Details of updates:
     - Design is simplified
     - The layout is fixed and evenly spread
-    */
-
-<?xml version="1.0" encoding="utf-8"?>
+     -->
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

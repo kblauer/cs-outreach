@@ -1,20 +1,19 @@
-package edu.ttu.cs.csta.quiz.menu;
+package edu.ttu.cs.csta.quiz.intro;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View;
 
+import edu.ttu.cs.csta.quiz.QuizManager;
 import edu.ttu.cs.csta.quiz.Quiz;
-import edu.ttu.cs.csta.quiz.intro.QuizIntroActivity;
+import edu.ttu.cs.csta.quiz.question.QuizQuestionActivity;
 
 /**
- * Created by Tristan on 10/25/2015.
+ * Created by Tristan on 11/4/2015.
  */
-public class QuizMenuItemClickListener implements OnClickListener {
-    private static final String QUIZ_EXTRA = "QUIZ";
-
-    /** The quiz that was clicked */
+public class QuizIntroItemClickListener implements OnClickListener {
+    /** The quiz that was started */
     private Quiz quiz;
     /** The parent activity for this on click listener */
     private AppCompatActivity appCompatActivity;
@@ -22,10 +21,10 @@ public class QuizMenuItemClickListener implements OnClickListener {
     /**
      * Default constructor.
      *
-     * @param quiz the quiz that was clicked
+     * @param quiz the quiz that was started
      * @param appCompatActivity the activity this on click listener comes from
      */
-    public QuizMenuItemClickListener(Quiz quiz, AppCompatActivity appCompatActivity) {
+    public QuizIntroItemClickListener(Quiz quiz, AppCompatActivity appCompatActivity) {
         this.quiz = quiz;
         this.appCompatActivity = appCompatActivity;
     }
@@ -36,8 +35,9 @@ public class QuizMenuItemClickListener implements OnClickListener {
      * @param v the view
      */
     public void onClick(View v) {
-        Intent intent = new Intent(appCompatActivity, QuizIntroActivity.class);
-        intent.putExtra(QUIZ_EXTRA, quiz);
+        QuizManager.startQuiz(quiz);
+
+        Intent intent = new Intent(appCompatActivity, QuizQuestionActivity.class);
         appCompatActivity.startActivity(intent);
     }
 }

@@ -50,7 +50,7 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name="edu.ttu.cs.csta.quiz.QuizIntroActivity"
+            android:name="edu.ttu.cs.csta.quiz.intro.QuizIntroActivity"
             android:label="Quiz"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
@@ -60,18 +60,28 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name="edu.ttu.cs.csta.quiz.menu.QuizCategoryMenuActivity"
+            android:name="edu.ttu.cs.csta.quiz.category.QuizCategoryMenuActivity"
             android:label="@string/title_activity_quiz_menu"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name="edu.ttu.cs.csta.quiz.menu.QuizMenuActivity"
             android:label="@string/title_activity_quiz_menu"
-            android:parentActivityName="edu.ttu.cs.csta.quiz.menu.QuizCategoryMenuActivity"
+            android:parentActivityName="edu.ttu.cs.csta.quiz.category.QuizCategoryMenuActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.ttu.cs.csta.quiz.menu.QuizCategoryMenuActivity" />
+                android:value="edu.ttu.cs.csta.quiz.category.QuizCategoryMenuActivity" />
+        </activity>
+        <activity
+            android:name="edu.ttu.cs.csta.quiz.question.QuizQuestionActivity"
+            android:label="@string/title_activity_quiz_question"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="edu.ttu.cs.csta.quiz.score.QuizScoreActivity"
+            android:label="@string/title_activity_quiz_score"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 

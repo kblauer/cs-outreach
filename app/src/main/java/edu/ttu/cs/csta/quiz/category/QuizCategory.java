@@ -1,4 +1,4 @@
-package edu.ttu.cs.csta.quiz;
+package edu.ttu.cs.csta.quiz.category;
 
 import java.io.Serializable;
 

@@ -2,10 +2,7 @@ package edu.ttu.cs.csta.quiz.menu;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -16,28 +13,18 @@ import com.example.ajeyadav.cstutorialapplication.R;
 import java.util.ArrayList;
 
 import edu.ttu.cs.csta.quiz.Quiz;
-import edu.ttu.cs.csta.quiz.QuizCategory;
+import edu.ttu.cs.csta.quiz.category.QuizCategory;
 import edu.ttu.cs.csta.quiz.QuizManager;
 
 public class QuizMenuActivity extends AppCompatActivity {
-    private static final String QUIZ_CATEGORIES_EXTRAS = "QUIZ_CATEGORY";
+    private static final String QUIZ_CATEGORIES_EXTRA = "QUIZ_CATEGORY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_menu);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });
-
-        QuizCategory quizCategory = (QuizCategory) getIntent().getExtras().getSerializable(QUIZ_CATEGORIES_EXTRAS);
+        QuizCategory quizCategory = (QuizCategory) getIntent().getExtras().getSerializable(QUIZ_CATEGORIES_EXTRA);
         populateView(quizCategory);
     }
 

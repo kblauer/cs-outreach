@@ -1,6 +1,8 @@
 package edu.ttu.cs.csta.quiz;
 
+import edu.ttu.cs.csta.quiz.question.QuizQuestion;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * A single quiz object.
@@ -12,12 +14,12 @@ public class Quiz implements Serializable {
     private String name;
     /** A description of the quiz */
     private String description;
-    /** The type of quiz */
-    private String type;
-    /** The timestamp the quiz was created on */
-    private Long createdOn;
-    /** The timestamp the quiz was last updated */
-    private Long lastModified;
+    /** The quiz questions */
+    private QuizQuestion[] quizQuestions;
+    /** The current score */
+    private Integer currentScore = 0;
+    /** The current question */
+    private Integer currentQuestion;
 
     public String getName() {
         return name;
@@ -35,27 +37,51 @@ public class Quiz implements Serializable {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
+    public QuizQuestion[] getQuizQuestions() {
+        return quizQuestions;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setQuizQuestions(ArrayList<QuizQuestion> quizQuestions) {
+        QuizQuestion[] quizQuestionArray = new QuizQuestion[quizQuestions.size()];
+
+        for (int i = 0; i < quizQuestions.size(); i++)
+            quizQuestionArray[i] = quizQuestions.get(i);
+
+        this.quizQuestions = quizQuestionArray;
     }
 
-    public Long getCreatedOn() {
-        return createdOn;
+    public void setCurrentQuestion(Integer currentQuestion) {
+        this.currentQuestion = currentQuestion;
     }
 
-    public void setCreatedOn(Long createdOn) {
-        this.createdOn = createdOn;
+    public QuizQuestion getNextQuizQuestion() {
+        try {
+            this.currentQuestion++;
+            return quizQuestions[currentQuestion];
+        } catch (ArrayIndexOutOfBoundsException aioobe) {
+
+        }
+        return null;
     }
 
-    public Long getLastModified() {
-        return lastModified;
+    public QuizQuestion getCurrentQuizQuestion() {
+        try {
+            return quizQuestions[currentQuestion];
+        } catch (ArrayIndexOutOfBoundsException aioobe) {
+
+        }
+        return null;
     }
 
-    public void setLastModified(Long lastModified) {
-        this.lastModified = lastModified;
+    public Boolean isLastQuestion() {
+        return this.currentQuestion == (quizQuestions.length -1);
+    }
+
+    public Integer getCurrentScore() {
+        return this.currentScore;
+    }
+
+    public void incrementScore() {
+        this.currentScore++;
     }
 }

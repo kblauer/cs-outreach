@@ -22,7 +22,7 @@ import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.VideoView;
 
-import edu.ttu.cs.csta.quiz.menu.QuizCategoryMenuActivity;
+import edu.ttu.cs.csta.quiz.category.QuizCategoryMenuActivity;
 
 // Main class for the homepage
 public class MainActivity extends AppCompatActivity implements OnClickListener {
