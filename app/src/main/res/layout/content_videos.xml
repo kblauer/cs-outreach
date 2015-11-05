@@ -1,52 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_video" tools:context="edu.ttu.cs.csta.quiz.menu.VideoActivity">
+    tools:showIn="@layout/activity_videos"
+    tools:context="com.example.ajeyadav.cstutorialapplication.VideosActivity">
 
-    <ImageView
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:id="@+id/imageView2"
-        android:background="#c3ecd948"
-        android:layout_alignTop="@+id/video_name"
-        android:layout_alignStart="@+id/videoy_name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/video_name"
-        android:textColor="@color/colorPrimary"
+    <VideoView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/videoView"
+        android:layout_gravity="center"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/colorAccent"
-        android:layout_below="@+id/video_category_name"
-        android:id="@+id/video_category_description" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VIDEO"
-        android:id="@+id/textView"
-        android:layout_alignBottom="@+id/video_description"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/imageView2"
-        android:paddingLeft="20dp"
-        android:paddingTop="5dp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:textSize="28dp"
-        android:nestedScrollingEnabled="true" />
-
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

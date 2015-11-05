@@ -28,6 +28,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="Login" >
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".SignupActivity"
@@ -50,7 +51,7 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name="edu.ttu.cs.csta.quiz.intro.QuizIntroActivity"
+            android:name=".QuizActivity"
             android:label="Quiz"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
@@ -60,29 +61,41 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name="edu.ttu.cs.csta.quiz.category.QuizCategoryMenuActivity"
-            android:label="@string/title_activity_quiz_menu"
+            android:name=".WelcomeActivity"
+            android:label="Welcome"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name="edu.ttu.cs.csta.quiz.menu.QuizMenuActivity"
-            android:label="@string/title_activity_quiz_menu"
-            android:parentActivityName="edu.ttu.cs.csta.quiz.category.QuizCategoryMenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.ttu.cs.csta.quiz.category.QuizCategoryMenuActivity" />
-        </activity>
-        <activity
-            android:name="edu.ttu.cs.csta.quiz.question.QuizQuestionActivity"
-            android:label="@string/title_activity_quiz_question"
+            android:name=".ForgotPasswordActivity"
+            android:label="Forgot Password"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name="edu.ttu.cs.csta.quiz.score.QuizScoreActivity"
-            android:label="@string/title_activity_quiz_score"
+            android:name=".PythonActivity"
+            android:label="Python Programming Language"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".CActivity"
+            android:label="C Programming Language"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".CplusplusActivity"
+            android:label="C++ Programming Language"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".JavaActivity"
+            android:label="Java Programming Language"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".CsharpActivity"
+            android:label="C# Programming Language"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
     </application>
 
 </manifest>

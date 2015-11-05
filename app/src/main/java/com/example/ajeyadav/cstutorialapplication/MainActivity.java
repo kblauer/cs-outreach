@@ -1,15 +1,15 @@
-// Ajeet Kumar Yadav
-// Project Team - 5
-// CS Tutorial Application
-// CS 5363 - Software Project Management
-// Java file for the login function
-// This java file will control the backend for homepage for the application.
-
+/**
+   Ajeet Kumar Yadav
+   Project Team - 5
+   CS Tutorial Application
+   CS 5363 - Software Project Management
+   Java file for the login function
+   This java file will control the backend for homepage for the application.
+*/
 
 package com.example.ajeyadav.cstutorialapplication;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,9 +20,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View.OnClickListener;
-import android.widget.VideoView;
-
-import edu.ttu.cs.csta.quiz.category.QuizCategoryMenuActivity;
 
 // Main class for the homepage
 public class MainActivity extends AppCompatActivity implements OnClickListener {
@@ -45,27 +42,22 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             }
         });
 
-        button1 = (Button)findViewById(R.id.buttonlogin);
+	// Setting the references of the buttons of the homepage
+        button1 = (Button)findViewById(R.id.button_login);
         button1.setOnClickListener(this);
-        button2 = (Button)findViewById(R.id.buttonsignup);
+        button2 = (Button)findViewById(R.id.button_signup);
         button2.setOnClickListener(this);
-        button3 = (Button)findViewById(R.id.buttonmycourses);
+        button3 = (Button)findViewById(R.id.button_mycourses);
         button3.setOnClickListener(this);
-        button4 = (Button)findViewById(R.id.buttoncoursecatalog);
+        button4 = (Button)findViewById(R.id.button_course_catalog);
         button4.setOnClickListener(this);
-        button5 = (Button)findViewById(R.id.buttonvideos);
+        button5 = (Button)findViewById(R.id.button_videos);
         button5.setOnClickListener(this);
-        button6 = (Button)findViewById(R.id.buttonquiz);
+        button6 = (Button)findViewById(R.id.button_quiz);
         button6.setOnClickListener(this);
-        button7 = (Button)findViewById(R.id.buttongames);
+        button7 = (Button)findViewById(R.id.button_games);
         button7.setOnClickListener(this);
 
-
-        final VideoView videoView =(VideoView) findViewById(R.id.videoView);
-        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" +
-                R.raw.welcome));
-        videoView.setMediaController(new android.widget.MediaController(this));
-        videoView.requestFocus();
 
     }
 
@@ -91,37 +83,69 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     }
 
 
+    /**
+     * Method which handles the button click
+     * Called when a view has been clicked.
+     * @param v The view that was clicked.
+     */
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.buttonlogin) {
+	
+	/** Selection statement, which redirects to the Login class 
+	    if the login button is clicked
+	*/ 
+        if(v.getId() == R.id.button_login) {
             Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
         }
-        else if (v.getId() == R.id.buttonsignup) {
+	
+	/** Selection statement, which redirects to the Signup class 
+	    if the signup button is clicked
+	*/ 
+        else if (v.getId() == R.id.button_signup) {
             Intent i = new Intent(this, SignupActivity.class);
             startActivity(i);
         }
-        else if (v.getId() == R.id.buttonmycourses) {
+        
+	/** Selection statement, which redirects to the My courses class 
+	    if the my courses button is clicked
+	*/ 
+	else if (v.getId() == R.id.button_mycourses) {
             Intent i = new Intent(this, MyCoursesActivity.class);
             startActivity(i);
         }
-        else if (v.getId() == R.id.buttoncoursecatalog) {
+        
+	/** Selection statement, which redirects to the Course Catalog class 
+	    if the Course Catalog button is clicked
+	*/ 
+	else if (v.getId() == R.id.button_course_catalog) {
             Intent i = new Intent(this, CourseCatalogActivity.class);
             startActivity(i);
         }
-        else if (v.getId() == R.id.buttonvideos) {
+
+	/** Selection statement, which redirects to the Videos class 
+	    if the video button is clicked
+	*/ 
+        else if (v.getId() == R.id.button_videos) {
             Intent i = new Intent(this, VideosActivity.class);
             startActivity(i);
         }
-        else if (v.getId() == R.id.buttonquiz) {
-            Intent i = new Intent(this, QuizCategoryMenuActivity.class);
+	
+	/** Selection statement, which redirects to the Quiz class 
+	    if the quiz button is clicked
+	*/ 
+        else if (v.getId() == R.id.button_quiz) {
+            Intent i = new Intent(this, QuizActivity.class);
             startActivity(i);
         }
-        else if (v.getId() == R.id.buttongames) {
+	
+	/** Selection statement, which redirects to the Games class 
+	    if the games button is clicked
+	*/ 
+        else if (v.getId() == R.id.button_games) {
             Intent i = new Intent(this, GamesActivity.class);
             startActivity(i);
         }
     }
-
 
 }

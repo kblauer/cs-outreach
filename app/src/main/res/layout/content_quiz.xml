@@ -9,8 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_my_courses"
-    android:background="@drawable/homepage_background"
-    tools:context="com.example.ajeyadav.cstutorialapplication.MyCoursesActivity">
+    tools:showIn="@layout/activity_quiz"
+    tools:context="com.example.ajeyadav.cstutorialapplication.QuizActivity">
 
 </RelativeLayout>

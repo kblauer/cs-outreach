@@ -1,4 +1,5 @@
-/* Ajeet Kumar Yadav
+/**
+   Ajeet Kumar Yadav
    Project Team - 5
    CS Tutorial Application
    CS 5363 - Software Project Management
@@ -11,7 +12,9 @@ package com.example.ajeyadav.cstutorialapplication;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +39,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +49,11 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor>,
+        OnClickListener {
+
+    // Importing database helper class
+    DatabaseHelper helper = new DatabaseHelper(this);
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -54,11 +62,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     /**
      * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -74,15 +82,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.userinputemail1);
         populateAutoComplete();
-
         mPasswordView = (EditText) findViewById(R.id.userinputpassword1);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                if ((id == R.id.buttonlogin1) || (id == EditorInfo.IME_NULL)) {
                     attemptLogin();
                     return true;
                 }
@@ -90,7 +98,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.buttonlogin);
+        // Declaring new button
+        Button button8;
+        button8 = (Button) findViewById(R.id.buttonsignup1);
+        button8.setOnClickListener(this);
+
+        Button mEmailSignInButton = (Button) findViewById(R.id.buttonlogin1);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,10 +111,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
 
+    // Method to auto complete the user input field
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;
@@ -110,6 +125,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         getLoaderManager().initLoader(0, null, this);
     }
 
+    // Method to request contacts
     private boolean mayRequestContacts() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true;
@@ -118,14 +134,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             return true;
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-            Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(android.R.string.ok, new View.OnClickListener() {
-                        @Override
-                        @TargetApi(Build.VERSION_CODES.M)
-                        public void onClick(View v) {
-                            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
-                        }
-                    });
+            Snackbar.make(mEmailView, R.string.permission_rationale,
+                    Snackbar.LENGTH_INDEFINITE).setAction(android.R.string.ok, new View.OnClickListener() {
+                @Override
+                @TargetApi(Build.VERSION_CODES.M)
+                public void onClick(View v) {
+                    requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
+                }
+            });
         } else {
             requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
         }
@@ -198,14 +214,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
+    // Method to validate email
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
         return email.contains("@");
     }
 
+    // Method to validate password
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 6;
+        return password.length() > 4;
     }
 
     /**
@@ -278,15 +294,54 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     }
 
-    private interface ProfileQuery {
-        String[] PROJECTION = {
-                ContactsContract.CommonDataKinds.Email.ADDRESS,
-                ContactsContract.CommonDataKinds.Email.IS_PRIMARY,
-        };
+    // Method to handle the click properties of the buttons
+    @Override
+    public void onClick(View v) {
 
-        int ADDRESS = 0;
-        int IS_PRIMARY = 1;
+        if (v.getId() == R.id.buttonlogin1) {
+
+            EditText email = (EditText) findViewById(R.id.userinputemail1);
+            EditText password = (EditText) findViewById(R.id.userinputpassword1);
+            String e_mail = email.getText().toString();
+            String pass1 = password.getText().toString();
+            String pass = helper.searchpassword(e_mail);
+
+            if (pass1.equals(pass)){
+                Intent i = new Intent(this, WelcomeActivity.class);
+                i.putExtra("eMail", (Parcelable) email);
+                startActivity(i);
+            }
+
+            else {
+                Toast.makeText(LoginActivity.this, "Username or Password is not correct.",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+        else {
+            if (v.getId() == R.id.buttonsignup1) {
+                Intent i = new Intent(this, SignupActivity.class);
+                startActivity(i);
+
+            }
+
+            if(v.getId() == R.id.forgotpassword) {
+                Intent i = new Intent(this, ForgotPasswordActivity.class);
+                startActivity(i);
+            }
+        }
     }
+
+        private interface ProfileQuery {
+            String[] PROJECTION = {
+                    ContactsContract.CommonDataKinds.Email.ADDRESS,
+                    ContactsContract.CommonDataKinds.Email.IS_PRIMARY,
+            };
+
+            int ADDRESS = 0;
+            int IS_PRIMARY = 1;
+        }
 
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
@@ -334,25 +389,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // TODO: register the new account here.
             return true;
         }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-            showProgress(false);
-
-            if (success) {
-                finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
-        }
     }
+
 }
 

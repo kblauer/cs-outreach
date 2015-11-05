@@ -2,9 +2,10 @@
    Project Team - 5
    CS Tutorial Application
    CS 5363 - Software Project Management
-   Java file for the My Courses
-   Once selected this will redirect the user to a new activity called My Courses
+   Java file for the Quiz
+   Once selected this will redirect the user to a new activity called Quiz
 */
+
 
 package com.example.ajeyadav.cstutorialapplication;
 
@@ -15,25 +16,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class MyCoursesActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_courses);
+        setContentView(R.layout.activity_quiz);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Working on it", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
-
-
-
     }
-}
 
+}
