@@ -21,6 +21,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 
+import edu.ttu.cs.csta.quiz.activity.QuizCategoryMenuActivity;
+
 // Main class for the homepage
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -135,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 	    if the quiz button is clicked
 	*/ 
         else if (v.getId() == R.id.button_quiz) {
-            Intent i = new Intent(this, QuizActivity.class);
+            Intent i = new Intent(this, QuizCategoryMenuActivity.class);
             startActivity(i);
         }
 	

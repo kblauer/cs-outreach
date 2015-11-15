@@ -51,9 +51,29 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".QuizActivity"
-            android:label="Quiz"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:name="edu.ttu.cs.csta.quiz.activity.QuizCategoryMenuActivity"
+            android:label="QuizCategoryMenu"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name="edu.ttu.cs.csta.quiz.activity.QuizMenuActivity"
+            android:label="QuizMenu"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name="edu.ttu.cs.csta.quiz.activity.QuizIntroActivity"
+            android:label="QuizIntro"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name="edu.ttu.cs.csta.quiz.activity.QuizQuestionActivity"
+            android:label="QuizQuestion"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name="edu.ttu.cs.csta.quiz.activity.QuizScoreActivity"
+            android:label="QuizScore"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".GamesActivity"

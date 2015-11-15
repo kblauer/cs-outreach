@@ -2,8 +2,9 @@ package edu.ttu.cs.csta.quiz;
 
 import java.util.ArrayList;
 
-import edu.ttu.cs.csta.quiz.category.QuizCategory;
-import edu.ttu.cs.csta.quiz.question.QuizQuestion;
+import edu.ttu.cs.csta.quiz.model.QuizCategory;
+import edu.ttu.cs.csta.quiz.model.Quiz;
+import edu.ttu.cs.csta.quiz.model.QuizQuestion;
 
 /**
  * Manages the quizzes for the application.
@@ -85,6 +86,10 @@ public class QuizManager {
     public static void startQuiz(Quiz quiz) {
         QuizManager.quiz = quiz;
         QuizManager.quiz.setCurrentQuestion(-1);
+    }
+
+    public static void stopQuiz() {
+        QuizManager.quiz = null;
     }
 
     /**
