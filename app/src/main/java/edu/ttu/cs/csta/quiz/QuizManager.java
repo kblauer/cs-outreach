@@ -1,5 +1,6 @@
 package edu.ttu.cs.csta.quiz;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import edu.ttu.cs.csta.quiz.model.QuizCategory;
@@ -12,7 +13,6 @@ import edu.ttu.cs.csta.quiz.model.QuizQuestion;
  * Created by Tristan on 10/25/2015.
  */
 public class QuizManager {
-
     /** The quiz that is currently being run */
     private static Quiz quiz;
 
@@ -113,6 +113,7 @@ public class QuizManager {
      */
     public static void attemptAnswer(Integer answerIndex) {
         QuizQuestion quizQuestion = QuizManager.quiz.getCurrentQuizQuestion();
+
         if (quizQuestion != null) {
             Boolean answerCorrect = quizQuestion.isCorrect(answerIndex);
 
@@ -130,16 +131,28 @@ public class QuizManager {
         return QuizManager.quiz.getCurrentScore();
     }
 
-    public static Boolean isLastQuestion() {
-        return QuizManager.quiz.isLastQuestion();
+    /**
+     * Gets the percentage of questions answered correctly.
+     *
+     * @return the percentage of questions answered correctly
+     */
+    public static String getScorePercentage() {
+        Integer score = QuizManager.quiz.getCurrentScore();
+        Integer possibleScore = QuizManager.quiz.getPossibleScore();
+
+        Double percentComplete = ((double) score / (double) possibleScore) * 100.0;
+        DecimalFormat decimalFormat = new DecimalFormat("##.##");
+
+
+        return decimalFormat.format(percentComplete) + "%";
     }
 
     /**
-     * Gets the total possible score.
+     * Checks if the quiz is on the last question.
      *
-     * @return the total possible score
+     * @return true if the quiz is on the last question; false otherwise
      */
-    public static Integer getPossibleScore() {
-        return QuizManager.quiz.getQuizQuestions().length;
+    public static Boolean isLastQuestion() {
+        return QuizManager.quiz.isLastQuestion();
     }
 }

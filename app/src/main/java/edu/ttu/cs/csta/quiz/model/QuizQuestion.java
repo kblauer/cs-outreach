@@ -14,7 +14,7 @@ public class QuizQuestion implements Serializable {
     private Integer correctAnswer;
 
     public Boolean isCorrect(Integer answerIndex) {
-        return answerIndex == correctAnswer;
+        return answerIndex.equals(correctAnswer);
     }
 
     public String getQuestion() {

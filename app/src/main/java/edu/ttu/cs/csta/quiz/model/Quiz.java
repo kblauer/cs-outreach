@@ -73,6 +73,10 @@ public class Quiz implements Serializable {
         return null;
     }
 
+    public int getPossibleScore() {
+        return this.getQuizQuestions().length;
+    }
+
     public Boolean isLastQuestion() {
         return this.currentQuestion == (quizQuestions.length -1);
     }

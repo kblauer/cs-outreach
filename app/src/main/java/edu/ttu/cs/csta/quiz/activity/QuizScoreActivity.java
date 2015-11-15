@@ -23,11 +23,8 @@ public class QuizScoreActivity extends AppCompatActivity {
     }
 
     private void populateScorePage() {
-        TextView scoreValueTextView = (TextView) findViewById(R.id.quiz_score_score_value);
-        scoreValueTextView.setText(QuizManager.getScore() + "");
-
-        TextView scorePossibleTextView = (TextView) findViewById(R.id.quiz_score_possible_value);
-        scorePossibleTextView.setText(QuizManager.getPossibleScore() + "");
+        TextView scoreValueTextView = (TextView) findViewById(R.id.quiz_score_text);
+        scoreValueTextView.setText(QuizManager.getScorePercentage());
 
         QuizManager.stopQuiz();
     }

@@ -33,5 +33,6 @@ public class QuizQuestionItemClickListener implements OnClickListener{
         }
 
         appCompatActivity.startActivity(intent);
+        appCompatActivity.finish();
     }
 }
