@@ -23,15 +23,25 @@ public class QuizManager {
     public static ArrayList<QuizCategory> getQuizCategories() {
         ArrayList<QuizCategory> quizCategories = new ArrayList<>();
 
-        // Generate a test category
-        // TODO Remove this
-        for (int i = 0; i < 50; i++) {
-            QuizCategory quizCategory = new QuizCategory();
-            quizCategory.setName("Test category #" + (i + 1));
-            quizCategory.setDescription("This is a test description.");
+//        // Generate a test category
+//        // TODO Remove this
+//        for (int i = 0; i < 50; i++) {
+//            QuizCategory quizCategory = new QuizCategory();
+//            quizCategory.setName("Test category #" + (i + 1));
+//            quizCategory.setDescription("This is a test description.");
+//
+//            quizCategories.add(quizCategory);
+//        }
 
-            quizCategories.add(quizCategory);
-        }
+        QuizCategory quizCategory = new QuizCategory();
+        quizCategory.setName("Programming Languages");
+        quizCategory.setDescription("These quizzes pertain to information related to programming languages and their fundamental concepts.");
+        quizCategories.add(quizCategory);
+
+        quizCategory = new QuizCategory();
+        quizCategory.setName("Software Project Management");
+        quizCategory.setDescription("Man, we could put all of Dr. Mengel's quizzes in here! :D");
+        quizCategories.add(quizCategory);
 
         return quizCategories;
     }
@@ -45,12 +55,37 @@ public class QuizManager {
     public static ArrayList<Quiz> getQuizzes(QuizCategory quizCategory) {
         ArrayList<Quiz> quizzes = new ArrayList<>();
 
-        for (int i = 0; i < 50; i++) {
-            Quiz quiz = new Quiz();
-            quiz.setName(quizCategory.getName() + " - Quiz " + (i + 1));
-            quiz.setDescription("This is quiz #" + (i + 1) + " in the category " + quizCategory.getName());
-            quiz.setQuizQuestions(QuizManager.getQuizQuestions(quiz));
+        if (quizCategory.getName().equals("Programming Languages")) {
+            Quiz quiz;
 
+            quiz = new Quiz();
+            quiz.setName("C");
+            quiz.setDescription("This contains questions about the C programming language");
+            quiz.setQuizQuestions(QuizManager.getQuizQuestions(quiz));
+            quizzes.add(quiz);
+
+            quiz = new Quiz();
+            quiz.setName("C#");
+            quiz.setDescription("This contains questions about the C# programming language");
+            quiz.setQuizQuestions(QuizManager.getQuizQuestions(quiz));
+            quizzes.add(quiz);
+
+            quiz = new Quiz();
+            quiz.setName("C++");
+            quiz.setDescription("This contains questions about the C++ programming language");
+            quiz.setQuizQuestions(QuizManager.getQuizQuestions(quiz));
+            quizzes.add(quiz);
+
+            quiz = new Quiz();
+            quiz.setName("Java");
+            quiz.setDescription("This contains questions about the Java programming language");
+            quiz.setQuizQuestions(QuizManager.getQuizQuestions(quiz));
+            quizzes.add(quiz);
+
+            quiz = new Quiz();
+            quiz.setName("Python");
+            quiz.setDescription("This contains questions about the Python programming language");
+            quiz.setQuizQuestions(QuizManager.getQuizQuestions(quiz));
             quizzes.add(quiz);
         }
 
@@ -66,12 +101,41 @@ public class QuizManager {
     private static ArrayList<QuizQuestion> getQuizQuestions(Quiz quiz) {
         ArrayList<QuizQuestion> quizQuestions = new ArrayList<>();
 
-        for (int i = 0; i < 3; i++) {
-            QuizQuestion quizQuestion = new QuizQuestion();
-            quizQuestion.setQuestion("What is the correct answer? Question " + i);
-            quizQuestion.setAnswers("This is the correct answer", "No wait, this is", "This is definitely it", "All of the above");
-            quizQuestion.setCorrectAnswer(0);
+        if (quiz.getName().equals("Java")) {
+            QuizQuestion quizQuestion;
 
+            quizQuestion = new QuizQuestion();
+            quizQuestion.setQuestion("What is the default scope of methods in Java?");
+            quizQuestion.setAnswers("Public", "Private", "Package-Private", "Protected");
+            quizQuestion.setCorrectAnswer(2);
+            quizQuestions.add(quizQuestion);
+
+            quizQuestion = new QuizQuestion();
+            quizQuestion.setQuestion("Who was the founder of Java?");
+            quizQuestion.setAnswers("James Gosling", "Grace Hopper", "Alan Turing", "None of the above");
+            quizQuestion.setCorrectAnswer(0);
+            quizQuestions.add(quizQuestion);
+
+            quizQuestion = new QuizQuestion();
+            quizQuestion.setQuestion("What does Java aim to be?");
+            quizQuestion.setAnswers(
+                    "Simple, object-oriented, and familiar",
+                    "Robust and secure",
+                    "Architecture-neutral and portable",
+                    "High performance",
+                    "Interpreted, threaded and dynamic",
+                    "All of the above");
+            quizQuestion.setCorrectAnswer(5);
+            quizQuestions.add(quizQuestion);
+
+            quizQuestion = new QuizQuestion();
+            quizQuestion.setQuestion("What does 2+2*3 evaluate to in java?");
+            quizQuestion.setAnswers(
+                    "223",
+                    "8",
+                    "12",
+                    "None of the above");
+            quizQuestion.setCorrectAnswer(1);
             quizQuestions.add(quizQuestion);
         }
 
@@ -86,6 +150,7 @@ public class QuizManager {
     public static void startQuiz(Quiz quiz) {
         QuizManager.quiz = quiz;
         QuizManager.quiz.setCurrentQuestion(-1);
+        QuizManager.quiz.resetScore();
     }
 
     public static void stopQuiz() {
@@ -120,15 +185,6 @@ public class QuizManager {
             if (answerCorrect)
                 QuizManager.quiz.incrementScore();
         }
-    }
-
-    /**
-     * Gets the current score.
-     *
-     * @return the current score
-     */
-    public static Integer getScore() {
-        return QuizManager.quiz.getCurrentScore();
     }
 
     /**

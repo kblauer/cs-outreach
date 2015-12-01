@@ -1,6 +1,5 @@
 package edu.ttu.cs.csta.quiz.model;
 
-import edu.ttu.cs.csta.quiz.model.QuizQuestion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -87,5 +86,9 @@ public class Quiz implements Serializable {
 
     public void incrementScore() {
         this.currentScore++;
+    }
+
+    public void resetScore() {
+        this.currentScore = 0;
     }
 }
